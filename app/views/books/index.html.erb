@@ -1,0 +1,16 @@
+<%= form_with(url: books_path, method: :get, local: true) do |f| %>
+  <%= f.label :search, 'Search' %>
+  <%= f.text_field :search %>
+  <%= f.submit 'Search' %>
+<% end %>
+
+<div>
+  <%= @books.count %> results
+</div>
+<ul>
+  <% @books.each do |book| %>
+    <li>
+      <%= book.author.full_name %>: <%= book.title %>
+    </li>
+  <% end %>
+</ul>
